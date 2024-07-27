@@ -12,7 +12,7 @@ public class EventPublisher {
     ApplicationContext applicationContext;
 
     public void publishEvent(SampleEvent event){
-        System.out.println("Publishing event: " + event.getMessage());
+        System.out.println("Publishing event : " + event.getMessage());
         applicationContext.publishEvent(event);
     }
 
