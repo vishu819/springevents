@@ -4,18 +4,21 @@ import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.ContextStartedEvent;
 import org.springframework.context.event.ContextStoppedEvent;
 import org.springframework.context.event.EventListener;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
 @Component
 public class ContextEventListener {
 
     @EventListener
+    @Async
     public void onEvent(ContextStartedEvent event) {
         System.out.println("ContextStartedEvent Listener received: " + event.getSource());
     }
 
-
+    // When context.stop() is called
     @EventListener
+    @Async
     public void onEvent(ContextStoppedEvent event) {
         System.out.println("ContextStoppedEvent Listener received: " + event.getSource());
     }
